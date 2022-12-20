@@ -9,7 +9,3 @@ from .serializers import *
 class SkillView(generics.ListAPIView):
     queryset = Skills.objects.all()
     serializer_class = SkillSerializer
-
-def main (request):
-
-    return HttpResponse("Hello")
