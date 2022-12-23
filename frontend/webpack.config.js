@@ -16,6 +16,22 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+
+      {
+        test: /\.(jpg|png|svg)$/,
+        use: {
+            loader: 'url-loader',
+            options: {
+                limit: 25000
+            }
+        }
+      },
+
+      {
+        test: /\.(sass|less|css)$/,
+        use: ["style-loader", "css-loader", 'sass-loader'],
+      },
+
     ],
   },
   optimization: {
@@ -29,5 +45,9 @@ module.exports = {
         // 'process.env.NODE_ENV' : JSON.stringify('production'),
       },
     }),
+    new webpack.ProvidePlugin({
+      "React": "react",
+   }),
+
   ],
 };
