@@ -35,7 +35,7 @@ export default class Skills extends Component {
 
   render() {
     return (
-      <div class="default">
+      <div class="default" id="skills">
         These are my skills:
 
         <ul>

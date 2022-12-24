@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import BlogPage from './BlogPage';
 import Skills from './Skills';
-import Hero from './Hero';
-// import NavBar from './NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { NavBar } from "./NavBar"
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { Hero } from "./Hero"
+import { BrowserRouter as Router, Routes, Route, Link, Redirect } from 'react-router-dom';
 
 export default class HomePage extends Component {
 
@@ -16,37 +14,23 @@ export default class HomePage extends Component {
 
     render(){
         return (
-            <Router>
-                <Switch>
+                <div>
+                
+                    <NavBar></NavBar>
 
-                    <Route exact path="/">
+                    <Hero></Hero>
 
-                        <div>
-                        
-                        
-                            <NavBar></NavBar>
+                    <Skills></Skills>
 
-                            <Hero></Hero>
+                    <div class="default">
 
-                            <Skills></Skills>
-
-                            <div class="default">
-
-                                Lorum Ipsum Dolres Sextus Puer Molestus Si Papi
-                                Munano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue Keblex Munano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue Keblex
-                            
-                            </div>
-
-                        </div>
-
-                    </Route>
-
-                    <Route path='/blog' component={BlogPage}>
-                    </Route>
+                        Lorum Ipsum Dolres Sextus Puer Molestus Si Papi
+                        Munano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue Keblex Munano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue KeblexMunano Si CHolo Cupabroa Deloa Tissue Keblex  Lorum Ipsum Dolres Sextus Puer Molestus Si Papi Munano Si CHolo Cupabroa Deloa Tissue Keblex
+                    
+                    </div>
+                </div>
 
 
-                </Switch>
-            </Router>
         )
     }
     
