@@ -52,7 +52,7 @@ nav.navbar a.navbar-brand {
 
 nav.navbar .navbar-nav .nav-link.navbar-link {
     font-weight: 400;
-    color: #fff !important;
+    color: #fff;
     letter-spacing: 0.8px;
     padding: 10px 30px;
     font-size: 18px;
@@ -62,6 +62,9 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
     opacity: 1;
+    color: rgb(174, 145, 66);
+    transition: all 0.5s ease-in-out;
+
 }
 
 span.navbar-text {
@@ -168,6 +171,12 @@ nav.navbar .navbar-toggler-icon.close {
 } 
 
 
+.isCurrent {
+    font-weight: bold;
+  }
+  
+
+
 /* Hero Styling */
 
 .hero {
@@ -206,6 +215,22 @@ nav.navbar .navbar-toggler-icon.close {
 
     margin-left: 25px;
   }
+
+
+/* Skills styling */
+
+
+.skills {
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin: 0;
+    background-color: rgb(12, 35, 64);
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+    height: 100vh;
+    padding: 0;
+}
+
   
 
 /*

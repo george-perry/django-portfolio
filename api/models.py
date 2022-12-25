@@ -4,3 +4,4 @@ from django.db import models
 
 class Skills(models.Model):
     name = models.CharField(max_length=20, default="")
+    link = models.TextField(default="")

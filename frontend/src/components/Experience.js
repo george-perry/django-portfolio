@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Container, Row, Col } from "react-bootstrap";
 
-export default class Skills extends Component {
+export default class Experience extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,26 +35,18 @@ export default class Skills extends Component {
 
   render() {
     return (
-      
-      <div className="skills">
-        <Container className="skills" id="skills">
+      <div class="skills" id="experience">
 
-          <Row className="skills">
+        <ul>
+            {this.state.data.map(skill => {
+            return (
+                <li key={skill.id}>
+                {skill.name}
+                </li>
+            );
+            })}
+      </ul>
 
-            <Col className="skills">
-
-              {this.state.data.map(skill => {
-              return (
-                  <li key={skill.id}>
-                  {skill.name} <img src={skill.link} ></img>
-                  </li>
-              );
-              })}
-
-            </Col>
-          </Row>
-
-        </Container>
       </div>
     )
   }

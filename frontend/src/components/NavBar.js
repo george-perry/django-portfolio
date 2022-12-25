@@ -1,17 +1,68 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 import logo from '../../static/images/gp.png';
 import { useRef } from 'react';
+import clsx from "clsx";
 
 export const NavBar = () => {
 
-  const [activeLink, setActiveLink] = useState('home');
+  const clamp = (value) => Math.max(0, value);
 
-  const onUpdateActiveLink = (value) => {
-    setActiveLink(value);
-  }
+  const isBetween = (value, floor, ceil) =>
+    value >= floor && value <= ceil;
+
+  const useScrollspy = (ids, offset = 0) => {
+    const [activeId, setActiveId] = useState("");
+    // const [activeLink, setActiveLink] = useState('home');
+
+    console.log("HEREO", activeId)
+
+    useLayoutEffect(() => {
+      const listener = () => {
+        const scroll = window.pageYOffset;
+
+        const position = ids
+          .map((id) => {
+            const element = document.getElementById(id);
+
+            if (!element) return { id, top: -1, bottom: -1 };
+
+            const rect = element.getBoundingClientRect();
+            const top = clamp(rect.top + scroll - offset);
+            const bottom = clamp(rect.bottom + scroll - offset);
+
+            return { id, top, bottom };
+          })
+          .find(({ top, bottom }) => isBetween(scroll, top, bottom));
+
+        console.log(position?.id)
+        setActiveId(position?.id);
+      };
+
+      listener();
+
+      window.addEventListener("resize", listener);
+      window.addEventListener("scroll", listener);
+
+      return () => {
+        window.removeEventListener("resize", listener);
+        window.removeEventListener("scroll", listener);
+      };
+    }, [ids, offset]);
+
+    return activeId;
+  };
+
+
+  const ids = ["home", "skills", "experience", "projects", "education"];
+  const activeId = useScrollspy(ids, 54); // 54 is navigation height
+
+  // const [activeLink, setActiveLink] = useState('');
+  // const onUpdateActiveLink = (value) => {
+  //   setActiveLink(value);
+  // }
 
   const [navBackground, setNavBackground] = useState(false)
     const navRef = useRef()
@@ -71,12 +122,23 @@ export const NavBar = () => {
           <span className="navbar-toggler-icon"></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
+
           <Nav className="justify-content-end" style={{ width: "100%" }}>
-            <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-            <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
-            <Nav.Link href="#experience" className={activeLink === 'experience' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Experience</Nav.Link>
-            <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
+            <Nav.Link href="#home" className={activeId == 'home' ? 'active navbar-link' : 'navbar-link'} >Home</Nav.Link>
+            <Nav.Link href="#skills" className={activeId == 'skills'? 'active navbar-link' : 'navbar-link'} >Skills</Nav.Link>
+            <Nav.Link href="#experience" className={activeId == 'experience' ? 'active navbar-link' : 'navbar-link'} >Experience</Nav.Link>
+            <Nav.Link href="#projects" className={activeId == 'projects' ? 'active navbar-link' : 'navbar-link'} >Projects</Nav.Link>
+            <Nav.Link href="#education" className={activeId == 'education' ? 'active navbar-link' : 'navbar-link'} >Education</Nav.Link>
+         
+            {/* <Nav.Link href="#home" className={clsx("navbar-link", activeId === 'home' && 'active navbar-link')} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
+            <Nav.Link href="#skills" className={clsx("navbar-link", activeId === 'skills' && 'active navbar-link')} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
+            <Nav.Link href="#experience" className={clsx("navbar-link", activeId === 'experience' && 'active navbar-link')} onClick={() => onUpdateActiveLink('experience')}>Experience</Nav.Link>
+            <Nav.Link href="#projects" className={clsx("navbar-link", activeId === 'projects' && 'active navbar-link')} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
+            <Nav.Link href="#education" className={clsx("navbar-link", activeId === 'education' && 'active navbar-link')} onClick={() => onUpdateActiveLink('education')}>Education</Nav.Link> */}
+          
+          
           </Nav>
+
           <span className="navbar-text">
             <Link to='/blog'>
               <button className="vvd"><span>Blog</span></button>
