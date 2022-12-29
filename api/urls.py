@@ -5,4 +5,6 @@ from .views import *
 urlpatterns = [
     path('skills', SkillView.as_view()),
     path('skills/<int:pk>', SkillDetailView.as_view({'put': 'update', 'delete': 'destroy'})),
+    path('experience', ExperienceView.as_view()),
+    path('experience/<int:pk>', ExperienceDetailView.as_view({'put': 'update', 'delete': 'destroy'})),
 ]

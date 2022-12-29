@@ -5,7 +5,6 @@ html {
     background-color: rgb(12, 35, 64);
     border: solid black .5px;
     color: white;
-
   }  
 
 body {
@@ -14,7 +13,6 @@ body {
     /* background-color: rgb(35, 41, 49); */
     background-color: rgb(12, 35, 64);
     color: white;
-
 }
 
 div {
@@ -64,7 +62,6 @@ nav.navbar .navbar-nav a.nav-link.navbar-link.active {
     opacity: 1;
     color: rgb(174, 145, 66);
     transition: all 0.5s ease-in-out;
-
 }
 
 span.navbar-text {
@@ -162,25 +159,21 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
 
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     border-color: transparent;
-
 } 
 
 nav.navbar .navbar-toggler-icon.close {
     transform: rotate(180deg);
-
 } 
-
 
 .isCurrent {
     font-weight: bold;
   }
+
   
-
-
 /* Hero Styling */
 
 .hero {
-    padding-top: 20vh;
+    padding-top: 30vh;
     background-color: rgb(12, 35, 64);
     color: white;
     min-height: 100vh;
@@ -189,15 +182,19 @@ nav.navbar .navbar-toggler-icon.close {
 }
 
 .hero h1 {
-    font-size: 90px;
+    font-size: min(17vw, 130px);
 }
 
 .hero-name {
     padding: 5%;
 }
 
+.hero-type {
+    font-size: min(5vw, 3em);
+}
+
 .hero-socials,.hero-more {
-    padding-top: 7.5%;
+    padding-top: 10%;
     justify-content: center;
 }
 
@@ -216,20 +213,98 @@ nav.navbar .navbar-toggler-icon.close {
     margin-left: 25px;
   }
 
-
 /* Skills styling */
-
 
 .skills {
     font-family: 'IBM Plex Sans', sans-serif;
     margin: 0;
     background-color: rgb(12, 35, 64);
     color: white;
-    overflow-x: hidden;
     position: relative;
     height: 100vh;
+    /* overflow: visible; */
     padding: 0;
+    justify-content: center;
+    align-items: center;
+    
 }
+
+.skill-title {
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+    text-align: center;
+    font-size: 90px;
+    font-size: min(17vw, 110px);
+}
+
+.skill-tabs {
+    /* background-color: rgb(174, 145, 66); */
+    justify-content: center;
+    color: white !important;
+    /* border: none !important; */
+    font-size: min(3vw, 30px);
+    border-color: rgb(12, 35, 64) !important;
+    margin: .5vw;
+}
+
+.nav.nav-tabs .nav-link {
+    background-color: rgb(174, 145, 66) !important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active.skill-tabs {
+    background-color: rgb(19, 23, 31) !important;
+    color: rgb(174, 145, 66) !important;
+}
+
+.nav.nav-tabs .nav-link:hover {
+    background-color: rgb(19, 23, 31) !important;
+}
+
+.skill {
+    justify-content: center;
+    padding: 1%;
+    align-items: center;
+}
+
+.skill-icon {
+    height: max(2vw, 130px);
+    width: max(2vw, 130px);
+    margin: 1vh 4vh 0 4vh;
+}
+
+
+/* Experience Styling */
+
+.experience {
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin: 0;
+    background-color: rgb(12, 35, 64);
+    color: white;
+    /* position: relative; */
+    height: 100vh;
+    /* overflow: visible; */
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.experience-title {
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+    text-align: center;
+    font-size: min(17vw, 110px);
+}
+
+.experience-timeline {
+    font-family: 'IBM Plex Sans', sans-serif;
+
+    /* text-align: center; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+/* NEWSNEWNW */
 
   
 

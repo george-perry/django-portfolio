@@ -26,7 +26,7 @@ export const Hero = () => {
                     <Col>
                         <TypeAnimation
                             sequence={[
-                                'Junior CS Student @ the University of Notre Dame', 
+                                'Junior CS Student @ Notre Dame', 
                                 2000, 
                                 'Aspiring Developer', 
                                 2000, 
@@ -39,9 +39,10 @@ export const Hero = () => {
                             wrapper="div"
                             cursor={true}
                             repeat={Infinity}
-                            style={{ fontSize: '2.5em' }}
+                            // style={{ fontSize: '3em' }}
                             speed={55}
                             deletionSpeed={70}
+                            className="hero-type"
                             />
                     </Col>
                 </Row>
