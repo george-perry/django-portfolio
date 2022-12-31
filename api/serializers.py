@@ -12,3 +12,19 @@ class ExperienceSerializer(serializers.ModelSerializer):
         model = Experience
         fields = ('id', 'title', 'cardTitle',  'cardSubtitle', 'cardDetailedText'
         )
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Projects
+        fields = ('id', 'title', 'text', 'link', 'skills'
+        )
+
+class PostSerializer(serializers.ModelSerializer):
+
+    # project = ProjectSerializer(read_only = True)
+
+
+    class Meta:
+        model = Posts
+        fields = ('title', 'project',
+        )

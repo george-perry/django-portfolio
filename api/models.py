@@ -20,3 +20,14 @@ class Experience(models.Model):
     cardTitle = models.CharField(max_length=100, default="")
     cardSubtitle = models.CharField(max_length=100, default="")
     cardDetailedText = models.TextField(default="")
+
+class Projects(models.Model):
+    title = models.CharField(max_length=100, default="")
+    text = models.TextField(default="")
+    link = models.TextField(default="")
+    skills = models.CharField(max_length=100, default="")
+
+class Posts(models.Model):
+    title = models.CharField(max_length=100, default="")
+    project = models.OneToOneField(Projects, on_delete=models.CASCADE, related_name='posts', primary_key=True)
+

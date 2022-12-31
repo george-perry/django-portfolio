@@ -62,3 +62,57 @@ class ExperienceDetailView(viewsets.ModelViewSet):
 
         experience = Experience.objects.get(pk=pk).delete()
         return Response()
+
+class ProjectView(generics.ListCreateAPIView):
+
+    queryset = Projects.objects.all()
+    serializer_class = ProjectSerializer     
+
+class ProjectDetailView(viewsets.ModelViewSet):
+
+    serializer_class = ProjectSerializer     
+    http_method_names = ['get', 'put', 'patch', 'head', 'options', 'trace', 'delete',]
+
+    def get_queryset(self):
+        return Projects.objects.all()
+
+    
+    def get(self, request, pk):
+        project = Projects.objects.get(pk=pk)
+        data = ProjectSerializer(project).data
+        return Response(data)
+
+    def delete(self, request, pk):
+
+        project = Projects.objects.get(pk=pk).delete()
+        return Response()
+
+class PostView(generics.ListCreateAPIView):
+
+    queryset = Posts.objects.all()
+    serializer_class = PostSerializer     
+
+class PostDetailView(viewsets.ModelViewSet):
+
+    serializer_class = PostSerializer     
+    http_method_names = ['get', 'put', 'patch', 'head', 'options', 'trace', 'delete',]
+
+    def get_queryset(self):
+        return Posts.objects.all()
+
+    
+    def get(self, request, pk):
+        post = Posts.objects.get(pk=pk)
+        data = PostSerializer(post).data
+        # print(data['project'])
+        # print(ProjectSerializer(pk=data['project']))
+        project = Projects.objects.get(pk=data['project'])
+        project_data = ProjectSerializer(project).data
+        data['project'] = project_data
+        return Response(data)
+
+    def delete(self, request, pk):
+
+        post = Posts.objects.get(pk=pk).delete()
+        return Response()
+

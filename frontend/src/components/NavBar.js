@@ -17,7 +17,7 @@ export const NavBar = () => {
     const [activeId, setActiveId] = useState("");
     // const [activeLink, setActiveLink] = useState('home');
 
-    console.log("HEREO", activeId)
+    // console.log("HEREO", activeId)
 
     useLayoutEffect(() => {
       const listener = () => {
@@ -37,7 +37,7 @@ export const NavBar = () => {
           })
           .find(({ top, bottom }) => isBetween(scroll, top, bottom));
 
-        console.log(position?.id)
+        // console.log(position?.id)
         setActiveId(position?.id);
       };
 
@@ -89,7 +89,7 @@ export const NavBar = () => {
     useEffect(() => {
           const expandHam = () => {
           
-            console.log(navExp.current)
+            // console.log(navExp.current)
             let menuBtn = document.querySelector(".navbar-toggler-icon")
 
             if (navExp.current) {
@@ -130,13 +130,6 @@ export const NavBar = () => {
             <Nav.Link href="#projects" className={activeId == 'projects' ? 'active navbar-link' : 'navbar-link'} >Projects</Nav.Link>
             <Nav.Link href="#education" className={activeId == 'education' ? 'active navbar-link' : 'navbar-link'} >Education</Nav.Link>
          
-            {/* <Nav.Link href="#home" className={clsx("navbar-link", activeId === 'home' && 'active navbar-link')} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-            <Nav.Link href="#skills" className={clsx("navbar-link", activeId === 'skills' && 'active navbar-link')} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
-            <Nav.Link href="#experience" className={clsx("navbar-link", activeId === 'experience' && 'active navbar-link')} onClick={() => onUpdateActiveLink('experience')}>Experience</Nav.Link>
-            <Nav.Link href="#projects" className={clsx("navbar-link", activeId === 'projects' && 'active navbar-link')} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
-            <Nav.Link href="#education" className={clsx("navbar-link", activeId === 'education' && 'active navbar-link')} onClick={() => onUpdateActiveLink('education')}>Education</Nav.Link> */}
-          
-          
           </Nav>
 
           <span className="navbar-text">

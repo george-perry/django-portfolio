@@ -10,7 +10,6 @@ html {
 body {
     font-family: 'IBM Plex Sans', sans-serif;
     margin: 0;
-    /* background-color: rgb(35, 41, 49); */
     background-color: rgb(12, 35, 64);
     color: white;
 }
@@ -19,10 +18,10 @@ div {
     font-family: 'IBM Plex Sans', sans-serif;
     margin: 0;
     color: white;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     position: relative;
 }
-
+  
 .default {
     font-family: 'IBM Plex Sans', sans-serif;
     margin: 0;
@@ -35,6 +34,11 @@ div {
 
 /* NavBar Styling */
 
+.navbar-container {
+    overflow-x: hidden;
+    
+}
+
 nav.navbar {
     padding: 18=00px 0;
     position: fixed;
@@ -42,6 +46,7 @@ nav.navbar {
     top: 0;
     z-index: 9999;
     transition:  0.32s ease-in-out;
+    
 }
 
 nav.navbar a.navbar-brand {
@@ -222,7 +227,7 @@ nav.navbar .navbar-toggler-icon.close {
     color: white;
     position: relative;
     height: 100vh;
-    /* overflow: visible; */
+    overflow-x: hidden;
     padding: 0;
     justify-content: center;
     align-items: center;
@@ -231,7 +236,7 @@ nav.navbar .navbar-toggler-icon.close {
 
 .skill-title {
     padding-top: 15vh;
-    padding-bottom: 10vh;
+    padding-bottom: 15vh;
     text-align: center;
     font-size: 90px;
     font-size: min(17vw, 110px);
@@ -267,9 +272,9 @@ nav.navbar .navbar-toggler-icon.close {
 }
 
 .skill-icon {
-    height: max(2vw, 130px);
-    width: max(2vw, 130px);
-    margin: 1vh 4vh 0 4vh;
+    height: max(9vw, 150px);
+    width: max(9vw, 150px);
+    margin: 3vh 5vh 0 5vh;
 }
 
 
@@ -282,7 +287,9 @@ nav.navbar .navbar-toggler-icon.close {
     color: white;
     /* position: relative; */
     height: 100vh;
-    /* overflow: visible; */
+    overflow: hidden;
+    /* overflow: scroll; */
+    /* overflow-x: hidden; */
     padding: 0;
     justify-content: center;
     align-items: center;
@@ -304,6 +311,118 @@ nav.navbar .navbar-toggler-icon.close {
     /* justify-content: center; */
 }
 
+.experience-timeline-mobile{
+    font-family: 'IBM Plex Sans', sans-serif;
+    overflow: scroll !important;
+}
+
+
+/* Project Styling  */
+
+.projects {
+    font-family: 'IBM Plex Sans', sans-serif;
+    /* margin: 0; */
+    background-color: rgb(12, 35, 64);
+    /* position: relative; */
+    height: 100vh;
+    overflow: visible !important;
+    /* padding: 5vh; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.project-title {
+    padding-top: 15vh;
+    padding-bottom: 5vh;
+    text-align: center;
+    font-size: min(17vw, 110px);
+}
+
+.mySwiper {
+    /* overflow-x: hidden; */
+    margin: 0;
+    border: none;
+
+}
+
+.swiper {
+    margin: 0;
+    width: max(100%, 90vw);
+    height: max(70vh, 300px);
+    box-sizing: none;
+}
+  
+.swiper-slide {
+    box-sizing: none;
+
+    text-align: center;
+    font-size: 18px;
+    background: rgb(12, 35, 64);
+    border: none;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+  
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-card {
+    background-color: rgb(19, 23, 31) !important;
+    margin: 0;
+    color:white;
+    /* height: min(50vh, 450px); */
+    /* width: max(250px, 20vw); */
+    width: max(30vw, 250px);
+}
+
+.project-card-title {
+    color: white;
+    font-size: 5px;
+}
+
+.projects button {
+    background-color: rgb(12, 35, 64);
+    /* border: none; */
+    border-color:rgb(19, 23, 31);
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.8px;
+    align-items: center;
+}
+
+.projects button:hover svg {
+    transition: 0.3s ease-in-out;
+    margin-left: 25px;
+    /* background-color: rgb(12, 35, 64); */
+}
+
+.projects .list-group {
+    border-color: rgb(12, 35, 64) !important;
+}
+
+.projects .list-group-item {
+    color: white;
+    background-color: rgb(19, 23, 31);
+    border-color: white;
+}
+
+  
 /* NEWSNEWNW */
 
   

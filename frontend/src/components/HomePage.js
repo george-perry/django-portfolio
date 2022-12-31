@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import BlogPage from './BlogPage';
 import Skills from './Skills';
 import Experience from './Experience';
+import Projects from './Projects';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from "./NavBar"
 import { Hero } from "./Hero"
@@ -25,11 +26,8 @@ export default class HomePage extends Component {
 
                     <Experience></Experience>
 
-                    <div class="default">
+                    <Projects></Projects>
 
-                        Lorum Ipsum Dolres Sextus Puer Molestus Si Papi
-                    
-                    </div>
                 </div>
 
 
