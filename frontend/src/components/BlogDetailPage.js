@@ -1,46 +1,34 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";  
 
 export const BlogDetailPage = () => {
-
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         data: [],
-    //         loaded: false,
-    //         placeholder: "Loading"
     
-    //     };
-    //     // this.pk = this.props.match.params.pk;
-    // }
-    
+  const [post, setPost] = useState(null);
     const { pk } = useParams();
 
+    useEffect(() => {
+      const fetchPost = async () => {
+        try {
+          const response = await fetch(`/api/posts/${pk}`);
+          const post = await response.json();
+          setPost(post);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+  
+      fetchPost();
+    }, [pk]);
 
-    // componentDidMount() {
-    //     fetch("api/posts")
-    //       .then(response => {
-    //         if (response.status > 400) {
-    //           return this.setState(() => {
-    //             return { placeholder: "Something went wrong!" };
-    //           });
-    //         }
-    //         return response.json();
-    //       })
-    //       .then(data => {
-    //         this.setState(() => {
-    //           return {
-    //             data,
-    //             loaded: true
-    //           };
-    //         });
-    //       });
-    //   }
-
+    if (!post) {
+      return <div>Loading...</div>;
+    }
+  
     return (
         <div>
           OK
           {pk}
+          {post.title}
 
         </div>
     )

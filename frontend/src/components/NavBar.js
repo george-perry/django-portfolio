@@ -4,7 +4,6 @@ import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 import logo from '../../static/images/gp.png';
 import { useRef } from 'react';
-import clsx from "clsx";
 
 export const NavBar = () => {
 
@@ -128,7 +127,7 @@ export const NavBar = () => {
             <Nav.Link href="#skills" className={activeId == 'skills'? 'active navbar-link' : 'navbar-link'} >Skills</Nav.Link>
             <Nav.Link href="#experience" className={activeId == 'experience' ? 'active navbar-link' : 'navbar-link'} >Experience</Nav.Link>
             <Nav.Link href="#projects" className={activeId == 'projects' ? 'active navbar-link' : 'navbar-link'} >Projects</Nav.Link>
-            <Nav.Link href="#education" className={activeId == 'education' ? 'active navbar-link' : 'navbar-link'} >Education</Nav.Link>
+            {/* <Nav.Link href="#education" className={activeId == 'education' ? 'active navbar-link' : 'navbar-link'} >Education</Nav.Link> */}
          
           </Nav>
 

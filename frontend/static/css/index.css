@@ -395,6 +395,10 @@ nav.navbar .navbar-toggler-icon.close {
     font-size: 5px;
 }
 
+.project-image {
+    width: 200px;
+}
+
 .projects button {
     background-color: rgb(12, 35, 64);
     /* border: none; */
@@ -413,6 +417,7 @@ nav.navbar .navbar-toggler-icon.close {
 }
 
 .projects .list-group {
+    padding-top: 1vh;
     border-color: rgb(12, 35, 64) !important;
 }
 
