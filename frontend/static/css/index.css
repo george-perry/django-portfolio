@@ -1,9 +1,10 @@
 /* Default Styling */
 
+
 html {
     scroll-behavior: smooth;
     background-color: rgb(12, 35, 64);
-    border: solid black .5px;
+    /* border: solid black .5px; */
     color: white;
   }  
 

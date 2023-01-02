@@ -29,5 +29,5 @@ class Projects(models.Model):
 
 class Posts(models.Model):
     title = models.CharField(max_length=100, default="")
-    project = models.OneToOneField(Projects, on_delete=models.CASCADE, related_name='posts', primary_key=True)
+    project = models.OneToOneField(Projects, on_delete=models.RESTRICT, related_name='posts', primary_key=True)
 

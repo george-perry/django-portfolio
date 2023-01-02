@@ -106,7 +106,9 @@ class PostDetailView(viewsets.ModelViewSet):
         data = PostSerializer(post).data
         # print(data['project'])
         # print(ProjectSerializer(pk=data['project']))
-        project = Projects.objects.get(pk=data['project'])
+
+        # When Creating new, get rid of ['id']
+        project = Projects.objects.get(pk=data['project']['id'])
         project_data = ProjectSerializer(project).data
         data['project'] = project_data
         return Response(data)

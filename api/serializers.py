@@ -21,7 +21,8 @@ class ProjectSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
 
-    # project = ProjectSerializer(read_only = True)
+    # Use unless creating new
+    project = ProjectSerializer(read_only = True)
 
 
     class Meta:

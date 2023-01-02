@@ -1,11 +1,14 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { HashLink } from 'react-router-hash-link';
-import { Link } from 'react-router-dom';
+import { Link, useLocation  } from 'react-router-dom';
 import logo from '../../static/images/gp.png';
 import { useRef } from 'react';
 
 export const NavBar = () => {
+
+  const location = useLocation();
+  // console.log(location)
 
   const clamp = (value) => Math.max(0, value);
 
@@ -14,9 +17,6 @@ export const NavBar = () => {
 
   const useScrollspy = (ids, offset = 0) => {
     const [activeId, setActiveId] = useState("");
-    // const [activeLink, setActiveLink] = useState('home');
-
-    // console.log("HEREO", activeId)
 
     useLayoutEffect(() => {
       const listener = () => {
@@ -36,7 +36,6 @@ export const NavBar = () => {
           })
           .find(({ top, bottom }) => isBetween(scroll, top, bottom));
 
-        // console.log(position?.id)
         setActiveId(position?.id);
       };
 
@@ -54,14 +53,8 @@ export const NavBar = () => {
     return activeId;
   };
 
-
-  const ids = ["home", "skills", "experience", "projects", "education"];
+  const ids = ["home", "skills", "experience", "projects"];
   const activeId = useScrollspy(ids, 54); // 54 is navigation height
-
-  // const [activeLink, setActiveLink] = useState('');
-  // const onUpdateActiveLink = (value) => {
-  //   setActiveLink(value);
-  // }
 
   const [navBackground, setNavBackground] = useState(false)
     const navRef = useRef()
@@ -88,7 +81,6 @@ export const NavBar = () => {
     useEffect(() => {
           const expandHam = () => {
           
-            // console.log(navExp.current)
             let menuBtn = document.querySelector(".navbar-toggler-icon")
 
             if (navExp.current) {
@@ -122,20 +114,49 @@ export const NavBar = () => {
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
 
-          <Nav className="justify-content-end" style={{ width: "100%" }}>
-            <Nav.Link href="#home" className={activeId == 'home' ? 'active navbar-link' : 'navbar-link'} >Home</Nav.Link>
-            <Nav.Link href="#skills" className={activeId == 'skills'? 'active navbar-link' : 'navbar-link'} >Skills</Nav.Link>
-            <Nav.Link href="#experience" className={activeId == 'experience' ? 'active navbar-link' : 'navbar-link'} >Experience</Nav.Link>
-            <Nav.Link href="#projects" className={activeId == 'projects' ? 'active navbar-link' : 'navbar-link'} >Projects</Nav.Link>
-            {/* <Nav.Link href="#education" className={activeId == 'education' ? 'active navbar-link' : 'navbar-link'} >Education</Nav.Link> */}
-         
-          </Nav>
-
+          {location.pathname !== '/blog' && (
+            <Nav className="justify-content-end" style={{ width: "100%" }}>
+              <Nav.Link href="#home" className={activeId == 'home' ? 'active navbar-link' : 'navbar-link'} >Home</Nav.Link>
+              <Nav.Link href="#skills" className={activeId == 'skills'? 'active navbar-link' : 'navbar-link'} >Skills</Nav.Link>
+              <Nav.Link href="#experience" className={activeId == 'experience' ? 'active navbar-link' : 'navbar-link'} >Experience</Nav.Link>
+              <Nav.Link href="#projects" className={activeId == 'projects' ? 'active navbar-link' : 'navbar-link'} >Projects</Nav.Link>
+              {/* <Nav.Link href="#education" className={activeId == 'education' ? 'active navbar-link' : 'navbar-link'} >Education</Nav.Link> */}
+          
+            </Nav>
+          )}
+{/* 
           <span className="navbar-text">
-            <Link to='/blog'>
-              <button className="vvd"><span>Blog</span></button>
-            </Link>
-          </span>
+            <Link to='/blog'> */}
+
+          {location.pathname !== '/blog' && 
+            <span className="navbar-text">
+              <Link to='/blog'>
+                <button className="vvd"><span>Blog</span></button>
+              </Link>
+            </span>
+          }            
+
+          {location.pathname === '/blog' && !expanded && 
+            <span className="navbar-text" style={{alignItems: "right", paddingLeft:"75%"}}>
+              <Link to='/'>
+                <button ><span>Return Home</span></button>
+              </Link>
+            </span>
+          }
+
+          {location.pathname === '/blog' && expanded && 
+            <span className="navbar-text">
+              <Link to='/'>
+                <button ><span>Return Home</span></button>
+              </Link>
+            </span>
+          }
+             
+              {/* <button className="vvd"><span>Blog</span></button> */}
+            
+            {/* </Link>
+          </span> */}
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
