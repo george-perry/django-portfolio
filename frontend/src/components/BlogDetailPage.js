@@ -1,5 +1,7 @@
 import React, { Component, useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";  
+import { NavBar } from "./NavBar"
+import '../assets/tailwind.css'
 
 export const BlogDetailPage = () => {
     
@@ -21,14 +23,67 @@ export const BlogDetailPage = () => {
     }, [pk]);
 
     if (!post) {
-      return <div>Loading...</div>;
+      return <div className="bg-[#0C2340] mx-auto">Loading...</div>;
     }
-  
+
+
+    let skills = post.project.skills.replace(' ', '').split('|');
+    let paragraphs = post.content.split('|');
+
+
+    // for blog content, use | as delimeter as well
+
+
+
     return (
-        <div>
-          OK
-          {pk}
-          {post.title}
+
+
+        <div className="bg-[#0C2340]">
+
+        <NavBar></NavBar>
+
+          <article className="px-4 py-28 mx-auto max-w-7xl" itemid="#" itemscope itemtype="http://schema.org/BlogPosting">
+            <div className="w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
+              <img src={post.project.link} class="object-cover w-full h-full bg-center rounded-lg" alt="Kutty" />
+              <h1 className="py-4 mb-3 text-3xl font-bold leading-tight md:text-4xl" itemprop="headline" title={post.title}>
+              {post.title}
+              </h1>
+              <div className="flex mb-6 space-x-2">
+
+                {skills.map(skill => {
+
+                  return (
+                  <a className="text-black bg-gray-100 badge hover:bg-gray-200" href="#">{skill}</a>
+                 )
+                })}
+
+              </div>
+              <a className="flex items-center text-gray-700" href="#">
+                <div className="ml-2">
+                  <p className="text-sm text-gray-500">{post.date}</p>
+                </div>
+              </a>
+            </div>
+
+            <div className="w-full mx-auto prose md:w-3/4 lg:w-1/2">
+
+
+            {paragraphs.map(paragraph => {
+
+              return (
+
+              <p>
+                {paragraph}
+              </p>
+
+              )
+              })}
+
+            </div>
+          </article>
+
+
+
 
         </div>
     )

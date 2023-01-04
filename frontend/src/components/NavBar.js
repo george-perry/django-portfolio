@@ -1,14 +1,14 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { HashLink } from 'react-router-hash-link';
-import { Link, useLocation  } from 'react-router-dom';
+import { Link, useLocation, ScrollRestoration  } from 'react-router-dom';
 import logo from '../../static/images/gp.png';
 import { useRef } from 'react';
 
 export const NavBar = () => {
 
   const location = useLocation();
-  // console.log(location)
+  console.log(location)
 
   const clamp = (value) => Math.max(0, value);
 
@@ -114,7 +114,7 @@ export const NavBar = () => {
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
 
-          {location.pathname !== '/blog' && (
+          {!location.pathname.startsWith('/blog') && (
             <Nav className="justify-content-end" style={{ width: "100%" }}>
               <Nav.Link href="#home" className={activeId == 'home' ? 'active navbar-link' : 'navbar-link'} >Home</Nav.Link>
               <Nav.Link href="#skills" className={activeId == 'skills'? 'active navbar-link' : 'navbar-link'} >Skills</Nav.Link>
@@ -128,7 +128,7 @@ export const NavBar = () => {
           <span className="navbar-text">
             <Link to='/blog'> */}
 
-          {location.pathname !== '/blog' && 
+          {!location.pathname.startsWith('/blog') && 
             <span className="navbar-text">
               <Link to='/blog'>
                 <button className="vvd"><span>Blog</span></button>
@@ -136,7 +136,7 @@ export const NavBar = () => {
             </span>
           }            
 
-          {location.pathname === '/blog' && !expanded && 
+          {location.pathname.startsWith('/blog') && !expanded && 
             <span className="navbar-text" style={{alignItems: "right", paddingLeft:"75%"}}>
               <Link to='/'>
                 <button ><span>Return Home</span></button>
@@ -144,7 +144,7 @@ export const NavBar = () => {
             </span>
           }
 
-          {location.pathname === '/blog' && expanded && 
+          {location.pathname.startsWith('/blog') && expanded && 
             <span className="navbar-text">
               <Link to='/'>
                 <button ><span>Return Home</span></button>
