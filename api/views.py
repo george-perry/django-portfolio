@@ -18,8 +18,6 @@ class SkillView(generics.ListCreateAPIView):
     queryset = Skills.objects.all()
     serializer_class = SkillSerializer  
     permission_classes = (IsAuthenticatedOrReadOnly,)
-    # for obj in queryset:
-    #     print(obj.id)
 
 class SkillDetailView(viewsets.ModelViewSet):
 
@@ -32,10 +30,6 @@ class SkillDetailView(viewsets.ModelViewSet):
 
     
     def get(self, request, pk):
-        # serializer_class = SkillSerializer  
-         
-        # token = Token.objects.create(user=request.user)
-        # print(token.key)
  
         skill = Skills.objects.get(pk=pk)
         data = SkillSerializer(skill).data
@@ -45,8 +39,6 @@ class SkillDetailView(viewsets.ModelViewSet):
 
         skill = Skills.objects.get(pk=pk).delete()
         return Response()
-
-
 
 class ExperienceView(generics.ListCreateAPIView):
 
@@ -78,7 +70,7 @@ class ProjectView(generics.ListCreateAPIView):
 
     queryset = Projects.objects.all()
     serializer_class = ProjectSerializer     
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
 class ProjectDetailView(viewsets.ModelViewSet):
 
@@ -104,13 +96,13 @@ class PostView(generics.ListCreateAPIView):
 
     queryset = Posts.objects.all()
     serializer_class = PostSerializer     
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
 class PostDetailView(viewsets.ModelViewSet):
 
     serializer_class = PostSerializer     
     http_method_names = ['get', 'put', 'patch', 'head', 'options', 'trace', 'delete',]
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def get_queryset(self):
         return Posts.objects.all()
@@ -119,8 +111,6 @@ class PostDetailView(viewsets.ModelViewSet):
     def get(self, request, pk):
         post = Posts.objects.get(pk=pk)
         data = PostSerializer(post).data
-        # print(data['project'])
-        # print(ProjectSerializer(pk=data['project']))
 
         # When Creating new, get rid of ['id']
         project = Projects.objects.get(pk=data['project']['id'])

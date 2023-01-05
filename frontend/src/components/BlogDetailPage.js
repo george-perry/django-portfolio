@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";  
 import { NavBar } from "./NavBar"
 import '../assets/tailwind.css'
+import { SocialIcon } from 'react-social-icons';
 
 export const BlogDetailPage = () => {
     
@@ -26,7 +27,6 @@ export const BlogDetailPage = () => {
       return <div className="bg-[#0C2340] mx-auto">Loading...</div>;
     }
 
-
     let skills = post.project.skills.replace(' ', '').split('|');
     let paragraphs = post.content.split('|');
 
@@ -34,9 +34,7 @@ export const BlogDetailPage = () => {
     // for blog content, use | as delimeter as well
 
 
-
     return (
-
 
         <div className="bg-[#0C2340]">
 
@@ -49,42 +47,44 @@ export const BlogDetailPage = () => {
               {post.title}
               </h1>
               <div className="flex mb-6 space-x-2">
-
                 {skills.map(skill => {
-
                   return (
                   <a className="text-black bg-gray-100 badge hover:bg-gray-200" href="#">{skill}</a>
                  )
                 })}
-
               </div>
-              <a className="flex items-center text-gray-700" href="#">
+
+              {post.github && (
+                <div className="flex mb-6 space-x-2">
+                  <SocialIcon url={post.github} bgColor="#ffff" className=""/>
+
+                  {post.active && (
+                      <SocialIcon url={post.active} bgColor="#ffff" className=""/>
+                  )}    
+
+                </div>
+              )}
+              
+              <a className="flex items-center text-gray-700 " href="#">
                 <div className="ml-2">
-                  <p className="text-sm text-gray-500">{post.date}</p>
+                  <p className="text-sm text-gray-500 no-underline">{post.date}</p>
                 </div>
               </a>
+
             </div>
 
             <div className="w-full mx-auto prose md:w-3/4 lg:w-1/2">
 
-
             {paragraphs.map(paragraph => {
-
               return (
-
               <p>
                 {paragraph}
               </p>
-
               )
               })}
 
             </div>
           </article>
-
-
-
-
         </div>
     )
 }

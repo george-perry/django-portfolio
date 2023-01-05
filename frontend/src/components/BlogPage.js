@@ -52,6 +52,9 @@ export default class BlogPage extends Component {
               {this.state.data.map(post => {
 
                 let url = `/blog/${post.project.id}`
+                { if (!post.content) {
+                  return;
+                }}
 
                 return (
 
@@ -79,10 +82,24 @@ export default class BlogPage extends Component {
                       <a
                         href={url}
                         aria-label=""
-                        className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                        className="inline-flex no-underline items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
                       >
                         Read more
                       </a>
+                      
+                      &nbsp; &nbsp; 
+
+                      {post.active && (
+                        <a
+                          href={post.active}
+                          aria-label=""
+                          className="inline-flex no-underline items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                        >
+                          Visit Site
+                        </a>
+                      )}
+
+                      
                     </div>
                   </div>
 

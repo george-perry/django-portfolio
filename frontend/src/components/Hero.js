@@ -33,7 +33,6 @@ export const Hero = () => {
                                 'Biotech & ML/AI Enthusiast', 
                                 2000,
                                 () => {
-                                // console.log('Done typing!'); // Place optional callbacks anywhere in the array
                                 }
                             ]}
                             wrapper="div"
@@ -67,7 +66,7 @@ export const Hero = () => {
 
                 <Row className="hero-more">
                     <Col>
-                        <Button variant="outlined" onClick={() => navigate('/blog')}>&nbsp;About Me &nbsp;&nbsp;<ArrowRightCircle/>  </Button>
+                        <Button variant="outlined" onClick={() => navigate('/blog/5')}>&nbsp;About Me &nbsp;&nbsp;<ArrowRightCircle/>  </Button>
                     </Col>
                 </Row>
 

@@ -47,10 +47,6 @@ export default class Experience extends Component {
   }
 
   render() {
-    
-    {this.state.data.map(experience => {
-      // console.log(experience)
-      })}
 
     return (
       <div class={this.state.WindowSize > 720 ? 'experience' : 'experience overflow-scroll'} id="experience">

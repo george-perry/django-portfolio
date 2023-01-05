@@ -1,6 +1,5 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { HashLink } from 'react-router-hash-link';
 import { Link, useLocation, ScrollRestoration  } from 'react-router-dom';
 import logo from '../../static/images/gp.png';
 import { useRef } from 'react';
@@ -54,7 +53,7 @@ export const NavBar = () => {
   };
 
   const ids = ["home", "skills", "experience", "projects"];
-  const activeId = useScrollspy(ids, 54); // 54 is navigation height
+  const activeId = useScrollspy(ids, 54); 
 
   const [navBackground, setNavBackground] = useState(false)
     const navRef = useRef()
@@ -120,13 +119,8 @@ export const NavBar = () => {
               <Nav.Link href="#skills" className={activeId == 'skills'? 'active navbar-link' : 'navbar-link'} >Skills</Nav.Link>
               <Nav.Link href="#experience" className={activeId == 'experience' ? 'active navbar-link' : 'navbar-link'} >Experience</Nav.Link>
               <Nav.Link href="#projects" className={activeId == 'projects' ? 'active navbar-link' : 'navbar-link'} >Projects</Nav.Link>
-              {/* <Nav.Link href="#education" className={activeId == 'education' ? 'active navbar-link' : 'navbar-link'} >Education</Nav.Link> */}
-          
             </Nav>
           )}
-{/* 
-          <span className="navbar-text">
-            <Link to='/blog'> */}
 
           {!location.pathname.startsWith('/blog') && 
             <span className="navbar-text">
@@ -152,11 +146,6 @@ export const NavBar = () => {
             </span>
           }
              
-              {/* <button className="vvd"><span>Blog</span></button> */}
-            
-            {/* </Link>
-          </span> */}
-
         </Navbar.Collapse>
       </Container>
     </Navbar>

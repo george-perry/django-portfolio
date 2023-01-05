@@ -24,8 +24,7 @@ class PostSerializer(serializers.ModelSerializer):
     # Use unless creating new
     project = ProjectSerializer(read_only = True)
 
-
     class Meta:
         model = Posts
-        fields = ('title', 'project', 'date', 'content'
+        fields = ('title', 'project', 'date', 'content', 'github', 'active'
         )
