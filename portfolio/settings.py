@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-oorak7=#9f&!)f=v_ysy#y0!f09sv%u1pp2t!%jnk&(+x$-2tu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'frontend.apps.FrontendConfig',
-    # 'corsheaders',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,15 +122,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "frontend/static"),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS_ORIGIN_WHITELIST = (
-#     'http://localhost:3000',
-# )
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)
 
 REST_FRAMEWORK = {
     'DATETIME_FORMAT': "%m-%d-%Y",
