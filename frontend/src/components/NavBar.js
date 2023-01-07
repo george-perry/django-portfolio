@@ -7,7 +7,7 @@ import { useRef } from 'react';
 export const NavBar = () => {
 
   const location = useLocation();
-  console.log(location)
+  // console.log(location)
 
   const clamp = (value) => Math.max(0, value);
 
