@@ -13,21 +13,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 
-
-# CURRENT PROGRESS::::::
-# Just installed whitenoise and made it work! so now need to figure out
-# if i should continue w digitalocean thing or do like some other shit
-# if digital ocean, need to figure out which commands to use / env var
-# if else, set up ngxi and shit to serve idrk 
-# either way, still prob a bit of stuff needed to change in this file along with configs
-
-
-
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -38,6 +25,10 @@ SECRET_KEY = 'django-insecure-oorak7=#9f&!)f=v_ysy#y0!f09sv%u1pp2t!%jnk&(+x$-2tu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# DEBUG
+ALLOWED_HOSTS = ['localhost']
+
+#PROD
 ALLOWED_HOSTS = ['198.211.102.195', 'www.georgeperry.me', 'georgeperry.me']
 
 # Application definition
@@ -87,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -116,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -127,7 +116,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -155,7 +143,4 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
-
-
 }
-

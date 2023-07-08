@@ -37,7 +37,6 @@ export default class Skills extends Component {
       });
   }
 
-
   render() {
 
     let langs = []
@@ -57,18 +56,12 @@ export default class Skills extends Component {
       })}
 
     return (
-
       
       <div className="skills" id="skills">
-
         <h1 className="skill-title">My Skills</h1>
-
         <Tabs defaultActiveKey="languages" id="justify-tab-example" className="skill-tabs mb-5" >
-
           <Tab eventKey="languages" title="Languages" tabClassName="skill-tabs">
-
             <Row xs="auto" className="skill">
-              
               {langs.map(lang => {
                 return (
                   <Col xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
@@ -80,12 +73,9 @@ export default class Skills extends Component {
                   </Col>
                 );
                 })}
-            
             </Row>
           </Tab>
-
           <Tab eventKey="framework_library" title="Frameworks & Libraries" tabClassName="skill-tabs">
-            
             <Row xs="auto" className="skill"> 
               {frame_libs.map(frame_lib => {
                   return (
@@ -99,11 +89,8 @@ export default class Skills extends Component {
                   );
               })}
             </Row>
-
           </Tab>
-
           <Tab eventKey="other" title="Other" tabClassName="skill-tabs">
-            
             <Row xs="auto" className="skill">
               {others.map(other => {
                   return (
@@ -117,11 +104,8 @@ export default class Skills extends Component {
                   );
               })}
             </Row>
-          
           </Tab>
-
         </Tabs>
-
       </div>
     )
   }

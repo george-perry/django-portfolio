@@ -11,7 +11,6 @@ export const Hero = () => {
 
     const navigate = useNavigate();
 
-
     return (
         <div className="hero" id="home">
 
@@ -21,7 +20,6 @@ export const Hero = () => {
                         <h1>George Perry</h1>
                     </Col>
                 </Row>
-
                 <Row>
                     <Col>
                         <TypeAnimation
@@ -45,7 +43,6 @@ export const Hero = () => {
                             />
                     </Col>
                 </Row>
-
                 <Row className="hero-socials" xs="auto">
                     <Col>
                         <SocialIcon url="https://github.com/george-perry" bgColor="#ffff"/>
@@ -63,15 +60,12 @@ export const Hero = () => {
                     </a>
                     </Col>
                 </Row>
-
                 <Row className="hero-more">
                     <Col>
                         <Button variant="outlined" onClick={() => navigate('/blog/5')}>&nbsp;About Me &nbsp;&nbsp;<ArrowRightCircle/>  </Button>
                     </Col>
                 </Row>
-
             </Container>
-
         </div>
     )
 }

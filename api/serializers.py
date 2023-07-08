@@ -8,6 +8,10 @@ class SkillSerializer(serializers.ModelSerializer):
         )
 
 class ExperienceSerializer(serializers.ModelSerializer):
+
+    # Uncomment to re-order
+    # id = serializers.IntegerField()
+
     class Meta:
         model = Experience
         fields = ('id', 'title', 'cardTitle',  'cardSubtitle', 'cardDetailedText'

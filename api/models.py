@@ -34,6 +34,3 @@ class Posts(models.Model):
     content = models.TextField(null=True, blank=True)
     github = models.TextField(null=True, blank=True)
     active = models.TextField(null=True, blank=True)
-
-
-

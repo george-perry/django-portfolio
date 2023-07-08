@@ -7,7 +7,7 @@ import { SocialIcon } from 'react-social-icons';
 export const BlogDetailPage = () => {
     
   const [post, setPost] = useState(null);
-    const { pk } = useParams();
+  const { pk } = useParams();
 
     useEffect(() => {
       const fetchPost = async () => {
@@ -30,16 +30,12 @@ export const BlogDetailPage = () => {
     let skills = post.project.skills.replace(' ', '').split('|');
     let paragraphs = post.content.split('|');
 
-
     // for blog content, use | as delimeter as well
-
 
     return (
 
         <div className="bg-[#0C2340]">
-
         <NavBar></NavBar>
-
           <article className="px-4 py-28 mx-auto max-w-7xl" itemid="#" itemscope itemtype="http://schema.org/BlogPosting">
             <div className="w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
               <img src={post.project.link} class="object-cover w-full h-full bg-center rounded-lg" alt="Kutty" />
@@ -53,28 +49,21 @@ export const BlogDetailPage = () => {
                  )
                 })}
               </div>
-
               {post.github && (
                 <div className="flex mb-6 space-x-2">
                   <SocialIcon url={post.github} bgColor="#ffff" className=""/>
-
                   {post.active && (
                       <SocialIcon url={post.active} bgColor="#ffff" className=""/>
                   )}    
-
                 </div>
               )}
-              
               <a className="flex items-center text-gray-700 " href="#">
                 <div className="ml-2">
                   <p className="text-sm text-gray-500 no-underline">{post.date}</p>
                 </div>
               </a>
-
             </div>
-
             <div className="w-full mx-auto prose md:w-3/4 lg:w-1/2">
-
             {paragraphs.map(paragraph => {
               return (
               <p>
@@ -82,7 +71,6 @@ export const BlogDetailPage = () => {
               </p>
               )
               })}
-
             </div>
           </article>
         </div>

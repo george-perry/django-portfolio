@@ -10,7 +10,6 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticate
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import get_user_model 
 
-
 # Allow Any on Updates
 
 class SkillView(generics.ListCreateAPIView):
@@ -102,7 +101,7 @@ class PostDetailView(viewsets.ModelViewSet):
 
     serializer_class = PostSerializer     
     http_method_names = ['get', 'put', 'patch', 'head', 'options', 'trace', 'delete',]
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (AllowAny,)
 
     def get_queryset(self):
         return Posts.objects.all()
@@ -123,4 +122,3 @@ class PostDetailView(viewsets.ModelViewSet):
 
         post = Posts.objects.get(pk=pk).delete()
         return Response()
-
