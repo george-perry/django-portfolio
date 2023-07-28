@@ -7,6 +7,8 @@
 
 This project uses Django and React to create a responsive and well-designed portfolio page. The Django Rest Framework is used for handling data requests, and React for the frontend user interface. The project aims to showcase my skills, projects, and experiences in an interactive and visually appealing manner.
 
+**Visit my [website](http://georgeperry.me) to see the portfolio in action!**
+
 ## Requirements
 
 - Python (3.7 or higher)
