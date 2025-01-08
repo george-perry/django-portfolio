@@ -38,7 +38,7 @@ jobs:
           docker push ghcr.io/${{ github.repository_owner }}/react-frontend:latest
 
   deploy:
-    needs: build
+    needs: build-push
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to DigitalOcean App Platform
