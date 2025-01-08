@@ -23,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-oorak7=#9f&!)f=v_ysy#y0!f09sv%u1pp2t!%jnk&(+x$-2tu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # DEBUG
-# ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost']
 
 #PROD
-ALLOWED_HOSTS = ['www.georgeperry.me', 'georgeperry.me']
+# ALLOWED_HOSTS = ['www.georgeperry.me', 'georgeperry.me']
 
 # Application definition
 
