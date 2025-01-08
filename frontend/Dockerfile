@@ -1,4 +1,4 @@
-FROM node:22-alpine
+FROM node:22-alpine AS build
 
 # Set working directory
 WORKDIR /frontend
@@ -15,6 +15,14 @@ COPY frontend/. ./
 # Build the project
 RUN npm run build
 
-# Expose port and serve static files
-EXPOSE 3000
-CMD ["npm", "run", "dev"]
+# Serve the files.. stage # 2
+FROM nginx:stable-alpine
+
+# Copy from build
+COPY --from=build /frontend/static/frontend /usr/share/nginx/html
+
+# Expose port
+EXPOSE 80
+
+# Start the server
+CMD ["nginx", "-g", "daemon off;"]
