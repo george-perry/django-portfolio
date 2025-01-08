@@ -23,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-oorak7=#9f&!)f=v_ysy#y0!f09sv%u1pp2t!%jnk&(+x$-2tu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # DEBUG
 ALLOWED_HOSTS = ['localhost']
 
 #PROD
-ALLOWED_HOSTS = ['198.211.102.195', 'www.georgeperry.me', 'georgeperry.me']
+# ALLOWED_HOSTS = ['198.211.102.195', 'www.georgeperry.me', 'georgeperry.me']
 
 # Application definition
 
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'db/db.sqlite3',
     }
 }
 
