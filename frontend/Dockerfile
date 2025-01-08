@@ -9,11 +9,11 @@ COPY frontend/package.json frontend/package-lock.json ./
 # Install dependencies
 RUN npm i
 
-# Copy application files
-COPY frontend/. ./
-
 # Build the project
 RUN npm run build
+
+# Copy application files
+COPY frontend/. ./
 
 # Serve the files.. stage # 2
 FROM nginx:stable-alpine
