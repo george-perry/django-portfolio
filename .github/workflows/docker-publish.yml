@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  build:
+  build-push:
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -36,3 +36,15 @@ jobs:
         run: |
           docker build -t ghcr.io/${{ github.repository_owner }}/react-frontend:latest -f frontend/Dockerfile .
           docker push ghcr.io/${{ github.repository_owner }}/react-frontend:latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to DigitalOcean App Platform
+        uses: digitalocean/app-action@v1
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+          image: |
+            backend=ghcr.io/${{ github.repository_owner }}/django-backend:latest
+            frontend=ghcr.io/${{ github.repository_owner }}/react-frontend:latest

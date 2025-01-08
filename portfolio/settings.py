@@ -29,7 +29,7 @@ DEBUG = False
 # ALLOWED_HOSTS = ['localhost']
 
 #PROD
-ALLOWED_HOSTS = ['198.211.102.195', 'www.georgeperry.me', 'georgeperry.me']
+ALLOWED_HOSTS = ['www.georgeperry.me', 'georgeperry.me']
 
 # Application definition
 
