@@ -46,6 +46,3 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           app_name: clownfish-app
-          image: |
-            backend=ghcr.io/${{ github.repository_owner }}/django-backend:latest
-            frontend=ghcr.io/${{ github.repository_owner }}/react-frontend:latest

@@ -17,7 +17,7 @@ export const Hero = () => {
             <Container>
                 <Row className="hero-name">
                     <Col>
-                        <h1>George Perry</h1>
+                        <h1>Georges Perry</h1>
                     </Col>
                 </Row>
                 <Row>
