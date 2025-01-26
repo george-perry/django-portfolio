@@ -35,6 +35,7 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 print(f"SECRET_KEY: {SECRET_KEY[:8]}... (truncated for security)")
 print(f"DEBUG: {DEBUG}")
 print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")
+sys.stdout.flush()
 
 # Application definition
 
