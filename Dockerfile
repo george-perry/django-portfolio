@@ -30,6 +30,11 @@ COPY . .
 # Copy React build output to Django static directory
 COPY --from=frontend-build /app/static/frontend/ /app/frontend/static/
 
+# Use environment variables at runtime
+ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+ENV DJANGO_DEBUG=${DJANGO_DEBUG}
+ENV ALLOWED_HOSTS=${ALLOWED_HOSTS}
+
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
