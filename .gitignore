@@ -49,3 +49,6 @@ tmp_email/
 .direnv
 .envrc
 .tool-versions
+
+# Static files
+/frontend/static/frontend/*
