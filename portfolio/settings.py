@@ -32,6 +32,10 @@ DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'True'
 # Read ALLOWED_HOSTS (default: localhost for development)
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
+print(f"SECRET_KEY: {SECRET_KEY[:8]}... (truncated for security)")
+print(f"DEBUG: {DEBUG}")
+print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")
+
 # Application definition
 
 INSTALLED_APPS = [
