@@ -13,4 +13,5 @@ services:
       - ./db:/app/db
     environment:
       - DJANGO_SETTINGS_MODULE=portfolio.settings
-      - NODE_ENV=production
+      - DJANGO_ENV=development
+      - NODE_ENV=development

@@ -36,17 +36,19 @@ export const BlogDetailPage = () => {
 
         <div className="bg-[#0C2340]">
         <NavBar></NavBar>
-          <article className="px-4 py-28 mx-auto max-w-7xl" itemid="#" itemscope itemtype="http://schema.org/BlogPosting">
+          <article className="px-4 py-28 mx-auto max-w-7xl" itemID="#" itemScope itemType="http://schema.org/BlogPosting">
             <div className="w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
-              <img src={post.project.link} class="object-cover w-full h-full bg-center rounded-lg" alt="Kutty" />
-              <h1 className="py-4 mb-3 text-3xl font-bold leading-tight md:text-4xl" itemprop="headline" title={post.title}>
+              <img src={post.project.link} className="object-cover w-full h-full bg-center rounded-lg" alt="Kutty" />
+              <h1 className="py-4 mb-3 text-3xl font-bold leading-tight md:text-4xl" itemProp="headline" title={post.title}>
               {post.title}
               </h1>
               <div className="flex mb-6 space-x-2">
-                {skills.map(skill => {
+                {skills.map((skill, index) => {
                   return (
-                  <a className="text-black bg-gray-100 badge hover:bg-gray-200" href="#">{skill}</a>
-                 )
+                    <a key={index} className="text-black bg-gray-100 badge hover:bg-gray-200" href="#">
+                      {skill}
+                    </a>
+                  )
                 })}
               </div>
               {post.github && (
@@ -64,12 +66,12 @@ export const BlogDetailPage = () => {
               </a>
             </div>
             <div className="w-full mx-auto prose md:w-3/4 lg:w-1/2">
-            {paragraphs.map(paragraph => {
-              return (
-              <p>
-                {paragraph}
-              </p>
-              )
+              {paragraphs.map((paragraph, index) => {
+                return (
+                  <p key={index}>
+                    {paragraph}
+                  </p>
+                )
               })}
             </div>
           </article>

@@ -64,7 +64,7 @@ export default class Skills extends Component {
             <Row xs="auto" className="skill">
               {langs.map(lang => {
                 return (
-                  <Col xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
+                  <Col key={lang.id} xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
                     <IconButton>
                       <Tooltip title={lang.name}>
                         <img className="skill-icon img-fluid mx-auto" src={lang.link} ></img>
@@ -79,7 +79,7 @@ export default class Skills extends Component {
             <Row xs="auto" className="skill"> 
               {frame_libs.map(frame_lib => {
                   return (
-                    <Col xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
+                    <Col key={frame_lib.id} xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
                       <IconButton>
                         <Tooltip title={frame_lib.name}>
                           <img className="skill-icon img-fluid mx-auto" src={frame_lib.link} ></img>
@@ -94,7 +94,7 @@ export default class Skills extends Component {
             <Row xs="auto" className="skill">
               {others.map(other => {
                   return (
-                    <Col xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
+                    <Col key={other.id} xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
                       <IconButton>
                           <Tooltip title={other.name}>
                             <img className="skill-icon img-fluid mx-auto" src={other.link} ></img>

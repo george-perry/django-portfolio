@@ -45,7 +45,7 @@ export default class Projects extends Component {
 
     return (
 
-      <div class="projects" id="projects">
+      <div className="projects" id="projects">
           <h1 className="project-title">My Projects</h1>
           <Swiper
             pagination={{
@@ -70,7 +70,7 @@ export default class Projects extends Component {
 
               return (
 
-                <SwiperSlide>
+                <SwiperSlide key={post.project.id}>
                   <Card className="project-card" style={{height: "max(50vh, 380px)", width: "min(60vw, 700px)", backgroundColor: "rgb(19, 23, 31)"}}>
                     <Card.Img className="project-image" variant="top" src={post.project.link}  style={{height: '25vh', justifyContent: "center", alignContent: "center", objectFit: "cover"}}/>
                     <ListGroup className="list-group-flush" style={{fontSize: "min(3vw, 14px)"}}>

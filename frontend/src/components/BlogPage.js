@@ -58,7 +58,7 @@ export default class BlogPage extends Component {
 
                 return (
 
-                  <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
+                  <div key={post.project.id} className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
                     <img
                       src={post.project.link}
                       className="object-cover w-full h-64"

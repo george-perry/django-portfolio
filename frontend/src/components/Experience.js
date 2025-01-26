@@ -49,7 +49,7 @@ export default class Experience extends Component {
   render() {
 
     return (
-      <div class={this.state.WindowSize > 720 ? 'experience' : 'experience overflow-scroll'} id="experience">
+      <div className={this.state.WindowSize > 720 ? 'experience' : 'experience overflow-scroll'} id="experience">
         <Container>
           <h1 className="experience-title">My Experience</h1>
           <Chrono className="experience-timeline"  allowDynamicUpdate={"true"} items={this.state.data} mode={this.state.WindowSize > 720 ? 'HORIZONTAL' : 'VERTICAL_ALTERNATING'} itemWidth={"250"} cardHeight={100} showAllCardsHorizontal 
