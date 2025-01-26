@@ -279,7 +279,7 @@ nav.navbar .navbar-toggler-icon.close {
     margin: 0;
     background-color: rgb(12, 35, 64);
     color: white;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     padding: 0;
     justify-content: center;
