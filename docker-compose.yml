@@ -1,11 +1,9 @@
 version: '3.8'
 
 services:
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: django-backend
+  web:
+    build: .
+    container_name: django-react-app
     ports:
       - "8000:8000"
     volumes:
@@ -13,17 +11,4 @@ services:
       - ./db:/app/db
     environment:
       - DJANGO_SETTINGS_MODULE=portfolio.settings
-    depends_on:
-      - frontend
-
-  frontend:
-    build:
-      context: .
-      dockerfile: frontend/Dockerfile
-    container_name: react-frontend
-    ports:
-      - "3000:80"
-    volumes:
-      - ./frontend:/frontend
-    environment:
       - NODE_ENV=production

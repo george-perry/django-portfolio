@@ -27,15 +27,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push backend image
+      - name: Build and push image
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/django-backend:latest .
-          docker push ghcr.io/${{ github.repository_owner }}/django-backend:latest
-
-      - name: Build and push frontend image
-        run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/react-frontend:latest -f frontend/Dockerfile .
-          docker push ghcr.io/${{ github.repository_owner }}/react-frontend:latest
+          docker build -t ghcr.io/${{ github.repository_owner }}/django-react-app:latest .
+          docker push ghcr.io/${{ github.repository_owner }}/django-react-app:latest
 
   deploy:
     needs: build-push
