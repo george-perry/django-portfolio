@@ -37,27 +37,19 @@ export default class BlogPage extends Component {
     render(){
 
         return (
-
           <div className="bg-[#0C2340]">
-
             <NavBar></NavBar>
-
             <h1 className="justify-center content-center text-center pt-28	">Welcome to my blog!</h1>
-
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-              
               <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-                
-
-              {this.state.data.map(post => {
-
-                let url = `/blog/${post.project.id}`
-                { if (!post.content) {
-                  return;
-                }}
-
+                {this.state.data.map(post => {
+                  let url = `/blog/${post.project.id}`
+                  {
+                    if (post.title !== "About Me") {
+                      return;
+                    }
+                  }
                 return (
-
                   <div key={post.project.id} className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
                     <img
                       src={post.project.link}
@@ -86,9 +78,7 @@ export default class BlogPage extends Component {
                       >
                         Read more
                       </a>
-                      
                       &nbsp; &nbsp; 
-
                       {post.active && (
                         <a
                           href={post.active}
@@ -98,18 +88,13 @@ export default class BlogPage extends Component {
                           Visit Site
                         </a>
                       )}
-
-                      
                     </div>
                   </div>
-
                 )
               })}
-                
               </div>
             </div>
           </div>
-
         )
     }
 }

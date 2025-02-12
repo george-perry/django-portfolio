@@ -46,6 +46,7 @@
     "kutty": "^0.6.0",
     "postcss-loader": "^7.0.2",
     "react-chrono": "^1.20.0",
+    "react-markdown": "^9.0.3",
     "react-multi-carousel": "^2.8.2",
     "react-on-screen": "^2.1.1",
     "react-router-dom": "^6.6.0",
