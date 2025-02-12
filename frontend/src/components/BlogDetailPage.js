@@ -29,19 +29,16 @@ export const BlogDetailPage = () => {
   }
 
   let skills = post.project.skills.replace(' ', '').split('|');
-  // for blog content, use | as delimeter as well
-  let paragraphs = post.content.split('|');
-
   return (
     <div className="bg-[#0C2340]">
       <NavBar></NavBar>
       <article className="px-4 py-28 mx-auto max-w-7xl" itemID="#" itemScope itemType="http://schema.org/BlogPosting">
-        <div className="w-full mx-auto mb-6 text-left md:w-3/4 lg:w-1/2">
+        <div className="w-full mx-auto mb-2 text-left md:w-3/4 lg:w-1/2">
           <img src={post.project.link} className="object-cover w-full h-full bg-center rounded-lg" alt="Kutty" />
           <h1 className="py-4 mb-3 text-3xl font-bold leading-tight md:text-4xl" itemProp="headline" title={post.title}>
             {post.title}
           </h1>
-          {skills.length > 0 && (
+          {post.project.skills && (
             <div className="flex mb-6 space-x-2">
               {skills.map((skill, index) => (
                 <a key={index} className="text-black bg-gray-100 badge hover:bg-gray-200" href="#">
@@ -50,7 +47,7 @@ export const BlogDetailPage = () => {
               ))}
             </div>
           )}
-          {post.github && (
+          {post.github.length > 0 && (
             <div className="flex mb-6 space-x-2">
               <SocialIcon url={post.github} bgColor="#ffff" className="" />
               {post.active && (
@@ -58,16 +55,16 @@ export const BlogDetailPage = () => {
               )}
             </div>
           )}
-          <a className="flex items-center text-gray-700 " href="#">
-            <div className="ml-2">
-              <p className="text-sm text-gray-500 no-underline">{post.date}</p>
-            </div>
-          </a>
+          {post.date && (
+            <a className="flex items-center text-gray-700" href="#">
+              <div className="ml-2">
+                <p className="text-sm text-gray-500 no-underline">{post.date}</p>
+              </div>
+            </a>
+          )}
         </div>
         <div className="w-full mx-auto prose md:w-3/4 lg:w-1/2">
-          {paragraphs.map((paragraph, index) => (
-            <ReactMarkdown key={index} children={paragraph} />
-          ))}
+          <ReactMarkdown children={post.content}/>
         </div>
       </article>
     </div>
