@@ -56,7 +56,7 @@ export default class Projects extends Component {
           }}
         >
           {this.state.posts.map(post => {
-            let url = `/blog/${post.project.id}`
+            let url = `/blog/${post.id}`
             {
               if (post.project.title === "About Me") {
                 return;

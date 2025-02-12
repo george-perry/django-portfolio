@@ -58,7 +58,7 @@ export const Hero = () => {
         </Row>
         <Row className="hero-more">
           <Col>
-            <Button variant="outlined" onClick={() => navigate('/blog/5')}>&nbsp;About Me &nbsp;&nbsp;<ArrowRightCircle />  </Button>
+            <Button variant="outlined" onClick={() => navigate('/blog/3')}>&nbsp;About Me &nbsp;&nbsp;<ArrowRightCircle />  </Button>
           </Col>
         </Row>
       </Container>

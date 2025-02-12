@@ -18,6 +18,7 @@ class ExperienceSerializer(serializers.ModelSerializer):
         )
 
 class ProjectSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Projects
         fields = ('id', 'title', 'text', 'link', 'skills'
@@ -25,10 +26,12 @@ class ProjectSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
 
-    # Use unless creating new
+    # Use unless editing... requires change in view to edit project
     project = ProjectSerializer(read_only = True)
+
+    # Uncomment to re-order
+    # id = serializers.IntegerField()
 
     class Meta:
         model = Posts
-        fields = ('title', 'project', 'date', 'content', 'github', 'active'
-        )
+        fields = ('id', 'title', 'project', 'date', 'content', 'github', 'active')

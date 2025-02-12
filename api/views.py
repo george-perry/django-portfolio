@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from .models import Skills, Experience
 from .serializers import *
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, IsAdminUser, AllowAny 
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly 
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import get_user_model 
 
@@ -79,7 +79,6 @@ class ProjectDetailView(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Projects.objects.all()
-
     
     def get(self, request, pk):
         project = Projects.objects.get(pk=pk)
@@ -101,18 +100,17 @@ class PostDetailView(viewsets.ModelViewSet):
 
     serializer_class = PostSerializer     
     http_method_names = ['get', 'put', 'patch', 'head', 'options', 'trace', 'delete',]
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def get_queryset(self):
         return Posts.objects.all()
-
     
     def get(self, request, pk):
         post = Posts.objects.get(pk=pk)
         data = PostSerializer(post).data
 
-        # When Creating new, get rid of ['id']
         project = Projects.objects.get(pk=data['project']['id'])
+        # Use when project change required
         # project = Projects.objects.get(pk=data['project'])
         project_data = ProjectSerializer(project).data
         data['project'] = project_data
