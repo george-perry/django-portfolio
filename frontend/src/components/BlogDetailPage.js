@@ -63,8 +63,16 @@ export const BlogDetailPage = () => {
             </a>
           )}
         </div>
-        <div className="w-full mx-auto prose md:w-3/4 lg:w-1/2">
-          <ReactMarkdown children={post.content}/>
+        <div className="w-full mx-auto md:w-3/4 lg:w-1/2">
+          <ReactMarkdown 
+            className="prose"
+            components={{
+              ul: ({ children }) => <ul className="list-disc list-inside">{children}</ul>,
+              ol: ({ children }) => <ol className="list-decimal list-inside">{children}</ol>,
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
         </div>
       </article>
     </div>
