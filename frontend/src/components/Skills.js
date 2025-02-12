@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 
@@ -10,9 +9,9 @@ export default class Skills extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        data: [],
-        loaded: false,
-        placeholder: "Loading"
+      data: [],
+      loaded: false,
+      placeholder: "Loading"
 
     };
   }
@@ -43,20 +42,21 @@ export default class Skills extends Component {
     let frame_libs = []
     let others = []
 
-    {this.state.data.map(skill => {
-      if (skill.category == "language"){
-        langs.push(skill)
-      }
-      else if (skill.category == "framework" || skill.category == "library") {
-        frame_libs.push(skill)
-      }
-      else {
-        others.push(skill)
-      }
-      })}
+    {
+      this.state.data.map(skill => {
+        if (skill.category == "language") {
+          langs.push(skill)
+        }
+        else if (skill.category == "framework" || skill.category == "library") {
+          frame_libs.push(skill)
+        }
+        else {
+          others.push(skill)
+        }
+      })
+    }
 
     return (
-      
       <div className="skills" id="skills">
         <h1 className="skill-title">My Skills</h1>
         <Tabs defaultActiveKey="languages" id="justify-tab-example" className="skill-tabs mb-5" >
@@ -72,36 +72,36 @@ export default class Skills extends Component {
                     </IconButton>
                   </Col>
                 );
-                })}
+              })}
             </Row>
           </Tab>
           <Tab eventKey="framework_library" title="Frameworks & Libraries" tabClassName="skill-tabs">
-            <Row xs="auto" className="skill"> 
+            <Row xs="auto" className="skill">
               {frame_libs.map(frame_lib => {
-                  return (
-                    <Col key={frame_lib.id} xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
-                      <IconButton>
-                        <Tooltip title={frame_lib.name}>
-                          <img className="skill-icon img-fluid mx-auto" src={frame_lib.link} ></img>
-                        </Tooltip>
-                      </IconButton>
-                    </Col>
-                  );
+                return (
+                  <Col key={frame_lib.id} xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
+                    <IconButton>
+                      <Tooltip title={frame_lib.name}>
+                        <img className="skill-icon img-fluid mx-auto" src={frame_lib.link} ></img>
+                      </Tooltip>
+                    </IconButton>
+                  </Col>
+                );
               })}
             </Row>
           </Tab>
           <Tab eventKey="other" title="Other" tabClassName="skill-tabs">
             <Row xs="auto" className="skill">
               {others.map(other => {
-                  return (
-                    <Col key={other.id} xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
-                      <IconButton>
-                          <Tooltip title={other.name}>
-                            <img className="skill-icon img-fluid mx-auto" src={other.link} ></img>
-                          </Tooltip>
-                        </IconButton>
-                    </Col>
-                  );
+                return (
+                  <Col key={other.id} xs={3} sm={2} md={2} lg={3} xl="auto" className="justify-content-center mx-auto">
+                    <IconButton>
+                      <Tooltip title={other.name}>
+                        <img className="skill-icon img-fluid mx-auto" src={other.link} ></img>
+                      </Tooltip>
+                    </IconButton>
+                  </Col>
+                );
               })}
             </Row>
           </Tab>

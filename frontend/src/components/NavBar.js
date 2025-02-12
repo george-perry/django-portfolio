@@ -1,19 +1,15 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { Link, useLocation, ScrollRestoration  } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../static/images/gp.png';
 import { useRef } from 'react';
 
 export const NavBar = () => {
 
   const location = useLocation();
-  // console.log(location)
-
   const clamp = (value) => Math.max(0, value);
-
   const isBetween = (value, floor, ceil) =>
     value >= floor && value <= ceil;
-
   const useScrollspy = (ids, offset = 0) => {
     const [activeId, setActiveId] = useState("");
 
@@ -39,7 +35,6 @@ export const NavBar = () => {
       };
 
       listener();
-
       window.addEventListener("resize", listener);
       window.addEventListener("scroll", listener);
 
@@ -53,57 +48,55 @@ export const NavBar = () => {
   };
 
   const ids = ["home", "skills", "experience", "projects"];
-  const activeId = useScrollspy(ids, 54); 
+  const activeId = useScrollspy(ids, 54);
 
   const [navBackground, setNavBackground] = useState(false)
-    const navRef = useRef()
-    navRef.current = navBackground
-    useEffect(() => {
-      const handleScroll = () => {
-        const show = window.scrollY > 50
-  
-        if (navRef.current !== show) {
-          setNavBackground(show)
-        }
+  const navRef = useRef()
+  navRef.current = navBackground
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50
+
+      if (navRef.current !== show) {
+        setNavBackground(show)
       }
-      document.addEventListener('scroll', handleScroll)
-      return () => {
-        document.removeEventListener('scroll', handleScroll)
-      }
-    }, [])
+    }
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const [expanded, setExpanded] = useState(false);
-  
-    const navExp= useRef()
-    navExp.current = expanded;
+  const navExp = useRef()
+  navExp.current = expanded;
 
-    useEffect(() => {
-          const expandHam = () => {
-          
-            let menuBtn = document.querySelector(".navbar-toggler-icon")
+  useEffect(() => {
+    const expandHam = () => {
 
-            if (navExp.current) {
-              menuBtn.classList.add("close")
+      let menuBtn = document.querySelector(".navbar-toggler-icon")
 
-            }
-            else {
-              menuBtn.classList.remove("close")
-            }
-          }
+      if (navExp.current) {
+        menuBtn.classList.add("close")
 
-          document.addEventListener('click', expandHam)
-          return () => {
-            document.removeEventListener('click', expandHam)
-          }
-      }, [])
+      }
+      else {
+        menuBtn.classList.remove("close")
+      }
+    }
 
+    document.addEventListener('click', expandHam)
+    return () => {
+      document.removeEventListener('click', expandHam)
+    }
+  }, [])
 
   const expHandler = (flag) => {
     setExpanded(flag);
   }
 
   return (
-    <Navbar expand="lg" fixed="top" style={{ backgroundColor: navBackground || expanded ? "#13171f" : 'transparent'}}>
+    <Navbar expand="lg" fixed="top" style={{ backgroundColor: navBackground || expanded ? "#13171f" : 'transparent' }}>
       <Container>
         <Navbar.Brand href="/">
           <img height="50" width="75" className="d-inline-block align-top" src={logo} alt="Logo" />
@@ -116,36 +109,36 @@ export const NavBar = () => {
           {!location.pathname.startsWith('/blog') && (
             <Nav className="justify-content-end" style={{ width: "100%" }}>
               <Nav.Link href="#home" className={activeId == 'home' ? 'active navbar-link' : 'navbar-link'} >Home</Nav.Link>
-              <Nav.Link href="#skills" className={activeId == 'skills'? 'active navbar-link' : 'navbar-link'} >Skills</Nav.Link>
+              <Nav.Link href="#skills" className={activeId == 'skills' ? 'active navbar-link' : 'navbar-link'} >Skills</Nav.Link>
               <Nav.Link href="#experience" className={activeId == 'experience' ? 'active navbar-link' : 'navbar-link'} >Experience</Nav.Link>
               <Nav.Link href="#projects" className={activeId == 'projects' ? 'active navbar-link' : 'navbar-link'} >Projects</Nav.Link>
             </Nav>
           )}
 
-          {!location.pathname.startsWith('/blog') && 
+          {!location.pathname.startsWith('/blog') &&
             <span className="navbar-text">
               <Link to='/blog'>
                 <button className="vvd"><span>Blog</span></button>
               </Link>
             </span>
-          }            
+          }
 
-          {location.pathname.startsWith('/blog') && !expanded && 
-            <span className="navbar-text" style={{alignItems: "right", paddingLeft:"75%"}}>
+          {location.pathname.startsWith('/blog') && !expanded &&
+            <span className="navbar-text" style={{ alignItems: "right", paddingLeft: "75%" }}>
               <Link to='/'>
                 <button ><span>Return Home</span></button>
               </Link>
             </span>
           }
 
-          {location.pathname.startsWith('/blog') && expanded && 
+          {location.pathname.startsWith('/blog') && expanded &&
             <span className="navbar-text">
               <Link to='/'>
                 <button ><span>Return Home</span></button>
               </Link>
             </span>
           }
-             
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
